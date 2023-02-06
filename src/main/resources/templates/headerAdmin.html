@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="navbar">
+  <div class="header">
+    <div class="logo"><img style="width:170px" th:src="@{/logoFinal.png}"></div>
+    <div class="navItems">
+      <ul>
+        <li><a href="/" class="p-btn-icon icon-home p-bubblegum-color "></a></li>
+        <li><a href="/" class="p-btn-icon icon-user-follow p-bubblegum-color "></a></li>
+        <li><a href="/login/true" class="p-btn-icon icon-login p-bubblegum-color "></a></li>
+        <li><a href="#" class="p-btn-icon icon-logout p-bubblegum-color "></a></li
+      </ul>
+    </div>
+<!--    <div class="auth">-->
+<!--      <h3 th:classappend="${check} ? display : hidden">Sign in</h3>-->
+<!--      <h3 th:classappend="${check} ? hidden : display">Log out</h3>-->
+<!--    </div>-->
+  </div>
+</div>
+</html>
