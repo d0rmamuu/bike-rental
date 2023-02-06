@@ -1,0 +1,53 @@
+.header{
+            background-color: #09171a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0rem 5rem;
+        }
+        .navItems{
+            color: #88bdbc;
+            display: flex;
+        }
+        .navItems h3{
+            font-size: 16px;
+            margin: 0 2rem;
+            cursor: pointer;
+        }
+        .auth h3{
+            color: #88bdbc;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .logout{
+            display: none;
+        }
+        h3:hover{
+            color:white;
+        }
+        .logo{
+            color:#88bdbc;
+        }
+        .hidden{
+        	  display:none;
+        	}
+        	.display{
+        	  display:block;
+        	}
+.center {
+        margin: auto;
+        width: 30%;
+        padding: 10px;
+    }
+.card{
+
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+
+      }
+.card:hover{
+
+        box-shadow: 5px 6px 6px 2px #e9ecef;
+        transform: scale(1.1);
+    }

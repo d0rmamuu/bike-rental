@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<style>
+	body{
+		margin:0;
+	}
+</style>
+<body>
+	<div th:replace="/header::navbar">
+		
+	</div>
+<div>
+    <div>
+		<h2>Your password is incorrect</h2>
+		<h2>Go Back to Login Page. <a href="/login">Login</a></h2>
+	</div>
+   </div>
+</body>
+</html>

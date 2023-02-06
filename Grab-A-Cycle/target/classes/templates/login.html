@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <div th:replace="/fragments::links"></div>
+</head>
+<style>
+	body{
+		margin:0;
+	}
+	.hidden{
+		display: none;
+	}
+	.warning{
+		display: block;
+		color: red;
+	}
+	.centr {
+        margin: auto;
+        width: 30%;
+        padding: 10px;
+    }
+</style>
+<body>
+	<div th:include="/fragments::header">
+	</div>
+<div class="centr">
+    <form action="/udashboard" method="post">
+    <table>
+        <tr>
+            <td>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Email:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+<!--                <button type="button" class="btn btn-primary btn-sm" disabled>Email:</button>-->
+<!--&lt;!&ndash;                <label for="email"  class="p-form-label-inline p-btn-disabled">Email:&ndash;&gt;-->
+<!--                    </td><td>-->
+<!--                    <input type="email" name="email" id="email" class="p-form-text-alt" placeholder="email@example.com"></label>-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Password:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+<!--&lt;!&ndash;                <label for="password"  class="p-form-label-inline p-btn-disabled p-btn-round">Password:&ndash;&gt;-->
+<!--                <button type="button" class="btn btn-primary btn-sm" disabled>Password:</button>-->
+<!--            </td><td>-->
+<!--                <input type="text" name="password" id="password" class="p-form-text-alt" placeholder="password"></label></td>-->
+            </td>
+        </tr>
+        <tr><td>    </td></tr>
+        <tr>
+            <td><button type="submit" class="btn btn-primary">Submit</button></td>
+            </td><td>
+        </tr>
+        <tr>
+            <td><a href="/signup" class="btn btn-secondary" >New Here? Sign up!</a>
+            </td><td>
+        </tr>
+    </table>
+		<h2 class="p-headline" th:classappend="${incorrect} ? warning : hidden">incorrect password</h2>
+    </form>
+
+   </div>
+    <div th:replace="/fragments::footer">
+    </div>
+</body>
+</html>

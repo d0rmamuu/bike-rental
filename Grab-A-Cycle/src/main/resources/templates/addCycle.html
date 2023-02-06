@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<style>
+	body{
+		margin:0;
+	}
+</style>
+<body>
+<div th:replace="/headerAdmin::navbar"></div>
+<div>
+	<form action="#" th:action="@{/cycleEntered}" th:object="${cycle}" method="post">
+		<label for="name">Cycle Name</label>
+		<input type="text" field="*{cycleName}" name="cycleName" id="name">
+		<label for="type">Cycle Type</label>
+		<input type="text" field="*{cycleType}" name="cycleType" id="type">
+		<label for="model">Cycle Model</label>
+		<input type="text" field="*{cycleModel}" name="cycleModel" id="model">
+		<label for="price">Cycle Price</label>
+		<input type="number" field="*{price}" name="price" id="price">
+		
+		<button type="submit">Save Cycle</button>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<style>
+	body{
+		margin:0;
+	}
+
+</style>
+<body>
+<div th:replace="/headerAdmin::navbar"></div>
+<div>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Cycle Name</th>
+      <th>Cycle Model</th>
+      <th>Cycle Type</th>
+      <th>Cycle Price</th>
+      <th>Cycle Status</th>
+      <th>Cycle Update</th>
+      <th>Cycle Delete</th>
+    </tr>
+    <tr th:each="cycle: ${lists}" th:if="${cycle.isDeleted==false}">
+      <td th:text="${cycle.cycleId}"></td>
+      <td th:text="${cycle.cycleName}"></td>
+      <td th:text="${cycle.cycleModel}"></td>
+      <td th:text="${cycle.cycleType}"></td>
+      <td th:text="${cycle.price}"></td>
+      <td th:text="${cycle.cycleStatus}"></td>
+      <td ><a th:href="@{/updateForm/{id} (id=${cycle.cycleId})}">Update</a></td>
+      <td ><a th:href="@{/deleteCycle/{id} (id=${cycle.cycleId})}">Delete</a></td>
+    </tr>
+  </table>
+</div>
+<div>
+  <a th:href="@{/addCycle}">Add Cycle</a>
+</div>
+</body>
+</html>
