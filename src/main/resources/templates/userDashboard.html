@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Old UserDashboard</title>
+    <div th:replace="/fragments::links"></div>
+</head>
+<style>
+	body{
+		margin:0;
+	}
+	.display{
+		display:block;
+	}
+	.hidden{
+		display:none;
+	}
+</style>
+<body>
+	<div th:include="/fragments::header"></div>
+
+	<div th:classappend="${flag} ? 'display' : 'hidden'">
+		<form th:action="@{/search}"  method="post">
+			<input type="text" name="keyword" required >
+			<button type="submit">submit</button>
+		</form>
+	</div>
+    <div>
+    	<table>
+		  <tr>
+		    <th>Id</th>
+		    <th>Cycle Name</th>
+		    <th>Cycle Model</th>
+		    <th>Cycle Type</th>
+		    <th>Cycle Price</th>
+		    <th>Cycle Status</th>
+		  </tr>
+		  <tr th:each="cycle: ${lists}" th:if="${cycle.isDeleted==false}">
+		    <td th:text="${cycle.cycleId}"></td>
+	        <td th:text="${cycle.cycleName}"></td>
+	        <td th:text="${cycle.cycleModel}"></td>
+	        <td th:text="${cycle.cycleType}"></td>
+	        <td th:text="${cycle.price}"></td>
+	        <td><a th:href="@{/userDashboard/{id}(id=${cycle.cycleId})}" th:text="${cycle.cycleStatus}"></a></td>
+		  </tr>
+		</table>
+    </div>
+</body>
+
+<div th:replace="/fragments::footer"></div>
+
+</html>

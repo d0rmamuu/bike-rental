@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>updateForm</title>
+<!--    <link th:href="@{/main.css}" rel="stylesheet" />-->
+    <link rel="stylesheet" th:href="@{/header.css}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/css/full.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" >
+</head>
+<style>
+.center {
+        margin: auto;
+        width: 30%;
+        padding: 20px;
+    }
+</style>
+<body>
+<div th:replace="/headerAdmin::navbar"></div>
+<div class="center">
+
+    <form action="#" th:action="@{/cycleEntered/{id} (id=${cycle.cycleId})}" th:object="${cycle}" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="name" class="p-form-label-inline p-btn-disabled p-btn-round">Cycle Name
+                </td>
+                <td>
+                    <input type="text" th:field="*{cycleName}" name="cycleName" id="name"  class="p-form-text-alt" placeholder="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="type" class="p-form-label-inline p-btn-disabled p-btn-round">Cycle Type
+                </td>
+                <td>
+                    <input type="text" th:field="*{cycleType}" class="p-form-text-alt" name="cycleType" id="type" placeholder="type">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="model" class="p-form-label-inline p-btn-disabled p-btn-round">Cycle Model
+                </td>
+                <td>
+                    <input type="text" th:field="*{cycleModel}"  class="p-form-text-alt" name="cycleModel" id="model" placeholder="model">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="price" class="p-form-label-inline p-btn-disabled p-btn-round">Cycle Price
+                </td>
+                <td>
+                    <input type="number" th:field="*{price}"  class="p-form-text-alt" name="price" id="price" placeholder="price">
+                </td>
+            </tr>
+            <tr>
+                <td ></td>
+            </tr>
+        </table>
+
+    </form>
+
+
+
+
+
+    <form >
+		<input type="hidden" th:field="*{cycleId}">
+
+
+
+
+
+    </form>
+</div>
+<div class="center"><a type="submit" class="p-btn p-btn-round p-prim-col p-white-color p-white-color">Submit</a></div>
+</body>
+</html>
