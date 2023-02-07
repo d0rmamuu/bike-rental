@@ -2,11 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>updateForm</title>
-<!--    <link th:href="@{/main.css}" rel="stylesheet" />-->
-    <link rel="stylesheet" th:href="@{/header.css}"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/css/full.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" >
+    <div th:replace="/fragments::links"></div>
 </head>
 <style>
 .center {
@@ -16,7 +12,8 @@
     }
 </style>
 <body>
-<div th:replace="/headerAdmin::navbar"></div>
+<div th:replace="/fragments::header"></div>
+
 <div class="center">
 
     <form action="#" th:action="@{/cycleEntered/{id} (id=${cycle.cycleId})}" th:object="${cycle}" method="post">
@@ -60,19 +57,12 @@
 
     </form>
 
-
-
-
-
-    <form >
+    <form>
 		<input type="hidden" th:field="*{cycleId}">
-
-
-
-
-
     </form>
 </div>
-<div class="center"><a type="submit" class="p-btn p-btn-round p-prim-col p-white-color p-white-color">Submit</a></div>
+<div class="center"><a type="submit" class="btn">Submit</a></div>
+
+<div th:replace="/fragments::footer"></div>
 </body>
 </html>

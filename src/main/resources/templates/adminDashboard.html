@@ -2,43 +2,60 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link th:href="@{/main.css}" rel="stylesheet" />
+  <title>AD</title>
+  <div th:replace="/fragments::links"></div>
 </head>
 <style>
 	body{
 		margin:0;
 	}
-
+    .centr {
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+    }
 </style>
 <body>
-<div th:replace="/headerAdmin::navbar"></div>
+
+<div th:replace="/fragments::header"></div>
+<div> </div>
 <div>
-  <table>
+  <button type="button" class="btn btn-light " disabled>INVENTORY</button><br>
+  <a th:href="@{/addCycle}"><button class="btn btn-light">Add Cycle</button></a>
+</div>
+<div> .</div>
+<div>
+  <table class="table table-hover ">
+    <thead>
     <tr>
-      <th>Id</th>
-      <th>Cycle Name</th>
-      <th>Cycle Model</th>
-      <th>Cycle Type</th>
-      <th>Cycle Price</th>
-      <th>Cycle Status</th>
-      <th>Cycle Update</th>
-      <th>Cycle Delete</th>
+      <th scope="col" class="center">ID</th>
+      <th scope="col" class="center">NAME</th>
+      <th scope="col" class="center">MODEL</th>
+      <th scope="col" class="center">TYPE</th>
+      <th scope="col" class="center">PRICE</th>
+      <th scope="col" class="center">STATUS</th>
+      <th scope="col" class="center">UPDATE</th>
+      <th scope="col" class="center">DELETE</th>
     </tr>
+    </thead>
+    <tbody class="table-group-divider">
     <tr th:each="cycle: ${lists}" th:if="${cycle.isDeleted==false}">
-      <td th:text="${cycle.cycleId}"></td>
+      <th scope="row" th:text="${cycle.cycleId}"></th>
       <td th:text="${cycle.cycleName}"></td>
       <td th:text="${cycle.cycleModel}"></td>
       <td th:text="${cycle.cycleType}"></td>
-      <td th:text="${cycle.price}"></td>
+      <td th:text="${cycle.price}"> </td>
       <td th:text="${cycle.cycleStatus}"></td>
-      <td ><a th:href="@{/updateForm/{id} (id=${cycle.cycleId})}">Update</a></td>
-      <td ><a th:href="@{/deleteCycle/{id} (id=${cycle.cycleId})}">Delete</a></td>
+      <td ><a th:href="@{/updateForm/{id} (id=${cycle.cycleId})}"><button class="btn btn-success">+</button></a></td>
+      <td ><a th:href="@{/deleteCycle/{id} (id=${cycle.cycleId})}"><button class="btn btn-outline-danger">-</button></a></td>
     </tr>
+    </tbody>
   </table>
 </div>
-<div>
-  <a th:href="@{/addCycle}">Add Cycle</a>
-</div>
+
+
+
+<div th:replace="/fragments::footer"></div>
+
 </body>
 </html>

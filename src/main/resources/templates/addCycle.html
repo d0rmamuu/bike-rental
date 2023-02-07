@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link th:href="@{/main.css}" rel="stylesheet" />
+  <title>Add-Cycle</title>
+	<div th:replace="/fragments::links"></div>
 </head>
 <style>
 	body{
@@ -11,20 +11,46 @@
 	}
 </style>
 <body>
-<div th:replace="/headerAdmin::navbar"></div>
+<div th:replace="/fragments::header"></div>
 <div>
 	<form action="#" th:action="@{/cycleEntered}" th:object="${cycle}" method="post">
-		<label for="name">Cycle Name</label>
-		<input type="text" field="*{cycleName}" name="cycleName" id="name">
-		<label for="type">Cycle Type</label>
-		<input type="text" field="*{cycleType}" name="cycleType" id="type">
-		<label for="model">Cycle Model</label>
-		<input type="text" field="*{cycleModel}" name="cycleModel" id="model">
-		<label for="price">Cycle Price</label>
-		<input type="number" field="*{price}" name="price" id="price">
-		
-		<button type="submit">Save Cycle</button>
+		<table class="center">
+			<tr>
+				<td>
+					<div class="input-group input-group-lg" >
+						<span for="name" class="input-group-text">Cycle Name:</span>
+						<input type="text"  class="form-control" field="*{cycleName}" name="cycleName" id="name" required>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="input-group input-group-lg" >
+					<span for="type" class="input-group-text">Cycle Type:</span>
+					<input type="text" class="form-control" field="*{cycleType}" name="cycleType" id="type" required></div></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="input-group input-group-lg" >
+					<span for="model" class="input-group-text">Cycle Model:</span>
+					<input type="text" class="form-control" field="*{cycleModel}" name="cycleModel" id="model" required></div></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="input-group input-group-lg" >
+					<span for="price" class="input-group-text">Cycle Price:</span>
+					<input type="number" class="form-control" field="*{price}" name="price" id="price" required></div></td>
+			</tr>
+			<tr><td>
+
+			</td></tr>
+			<tr>
+				<td><button type="submit" class="btn btn-primary">Add Cycle</button></td>
+			</tr>
+		</table>
 	</form>
 </div>
 </body>
+
+<div th:replace="/fragments::footer"></div>
 </html>
